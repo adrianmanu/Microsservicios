@@ -18,7 +18,6 @@ Este proyecto es un microservicio para la gestión de productos utilizando **Nod
 
 Primero, clona este repositorio en tu máquina local:
 
-```bash
 git clone https://github.com/tu_usuario/tu_repositorio.git
 cd tu_repositorio
 
@@ -37,12 +36,12 @@ Puedes usar herramientas como Postman o cURL para interactuar con la API.
 Endpoints de la API
 A continuación, se describen los endpoints disponibles en la API para interactuar con los productos.
 
-1. Crear un Producto (POST /products)
+### 1. Crear un Producto (POST /products)
 Descripción: Este endpoint permite crear un nuevo producto en la base de datos.
 
 Datos requeridos: name, price, stock, supplier
 
-Ejemplo de solicitud (cuerpo JSON):
+### Ejemplo de solicitud (cuerpo JSON):
 {
   "name": "Producto A",
   "price": 100.00,
@@ -59,7 +58,7 @@ Respuesta:
   "supplier": "Proveedor A"
 }
 
-2. Obtener todos los productos (GET /products)
+### 2. Obtener todos los productos (GET /products)
 Descripción: Este endpoint devuelve todos los productos almacenados en la base de datos.
 
 Ejemplo de respuesta:
