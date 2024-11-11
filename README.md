@@ -10,8 +10,6 @@ Este proyecto es un microservicio para la gestión de productos utilizando **Nod
 
 ## Requisitos Previos
 - Tener **Docker** instalado en tu máquina.
-- Tener **Node.js** instalado (si deseas hacer modificaciones al backend).
-
 ## Instrucciones de Ejecución
 
 1. **Clonar el Repositorio**
