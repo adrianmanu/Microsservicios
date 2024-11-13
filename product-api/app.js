@@ -39,6 +39,34 @@ app.post('/products', async (req, res) => {
     res.status(500).send(error.message);
   }
 });
+app.put('/products/:id', async (req, res) => {
+  const { id } = req.params;
+  const { name, price, stock, proveedor } = req.body;
+  try {
+    const result = await pool.query(
+      'UPDATE products SET name = $1, price = $2, stock = $3, proveedor = $4 WHERE id = $5 RETURNING *',
+      [name, price, stock, proveedor, id]
+    );
+    if (result.rows.length === 0) {
+      return res.status(404).send('Producto no encontrado');
+    }
+    res.json(result.rows[0]);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
+app.delete('/products/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const result = await pool.query('DELETE FROM products WHERE id = $1 RETURNING *', [id]);
+    if (result.rows.length === 0) {
+      return res.status(404).send('Producto no encontrado');
+    }
+    res.status(204).send('Producto eliminado');
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
 
 
 app.listen(port, () => {
